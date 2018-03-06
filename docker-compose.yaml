@@ -9,3 +9,13 @@ services:
       - "8080:8080"
     environment:
       GO_WORK_DIR: "${GO_PROJECT_DIR}/app"
+
+  another-app:
+    container_name: "another-app"
+    build: "./docker/go-develop"
+    volumes:
+      - ".:${GO_PROJECT_DIR}"
+    ports:
+      - "8181:8181"
+    environment:
+      GO_WORK_DIR: "${GO_PROJECT_DIR}/another-app"
